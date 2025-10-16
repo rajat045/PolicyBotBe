@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/faqdb}
+    username: ${SPRING_DATASOURCE_USERNAME:faqbot}
+    password: ${SPRING_DATASOURCE_PASSWORD:faqbotpass}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+openai:
+api:
+  key: ${OPENAI_API_KEY}
+  embeddingModel: ${OPENAI_EMBEDDING_MODEL:text-embedding-3-small}
+  chatModel: ${OPENAI_CHAT_MODEL:gpt-4o}
+
+app:
+  chunk:
+    size: 500
+    overlap: 100
+  pgvector:
+    dimension: 1536
