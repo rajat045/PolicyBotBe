@@ -12,8 +12,7 @@ spring:
     show-sql: false
 
 openai:
-api:
-  key: ${OPENAI_API_KEY}
+  apiKey: ${OPENAI_API_KEY}
   embeddingModel: ${OPENAI_EMBEDDING_MODEL:text-embedding-3-small}
   chatModel: ${OPENAI_CHAT_MODEL:gpt-4o}
 

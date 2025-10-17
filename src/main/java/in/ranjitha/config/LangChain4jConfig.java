@@ -11,14 +11,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LangChain4jConfig {
 
-    @Value("${openai.apiKey:}")
-    private String openAiKey;
+    @Value("${openai.apiKey}")
+    private String openAiApiKey;
+
 
     @Bean
     public OpenAiChatModel openAiChatModel() throws Exception {
         try{
             return OpenAiChatModel.builder()
-                    .apiKey(openAiKey)
+                    .apiKey(openAiApiKey)
                     .modelName("gpt-4o-mini")
                     .temperature(0.2)
                     .build();
@@ -31,7 +32,7 @@ public class LangChain4jConfig {
     public EmbeddingModel embeddingModel() throws Exception {
         try{
             return OpenAiEmbeddingModel.builder()
-                    .apiKey(openAiKey)
+                    .apiKey(openAiApiKey)
                     .modelName("text-embedding-3-small")
                     .build();
         }catch (Exception ex){
